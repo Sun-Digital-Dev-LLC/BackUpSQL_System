@@ -5,11 +5,11 @@
         class="px-4 py-2 text-black rounded-md">
         Admin Dashboard
       </button>
-      <button v-if="isAuthenticated" @click="handleDashboardClick"
+      <!-- <button v-if="isAuthenticated" @click="handleDashboardClick"
         class="px-4 py-2 text-black rounded-md">
         Dashboard
-      </button>
-      <button @click="handleServerClick" class="px-4 py-2 text-black rounded-md">
+      </button> -->
+      <button v-if="isAuthenticated" @click="handleServerClick" class="px-4 py-2 text-black rounded-md">
         Server
       </button>
       <button v-if="!isAuthenticated" @click="navigateToLogin"
@@ -42,9 +42,9 @@ const handleAdminDashboardClick = () => {
   router.push('/admin/dashboard')
 }
 
-const handleDashboardClick = () => {
-  router.push('/client/dashboard')
-}
+// const handleDashboardClick = () => {
+//   router.push('/client/dashboard')
+// }
 
 const handleServerClick = () => {
   router.push('/client/selectserver')

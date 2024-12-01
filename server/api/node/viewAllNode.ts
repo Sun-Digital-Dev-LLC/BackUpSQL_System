@@ -11,5 +11,6 @@ export default async function viewAllNode() {
 
     const [rows] = await connection.execute('SELECT * FROM remote_servers');
     connection.end();
+    // console.log(rows);
     return rows;
 }

@@ -11,6 +11,9 @@ dependencies:
   '@nuxtjs/tailwindcss':
     specifier: ^6.12.2
     version: 6.12.2
+  file-saver:
+    specifier: ^2.0.5
+    version: 2.0.5
   mysql2:
     specifier: ^3.11.5
     version: 3.11.5
@@ -20,6 +23,9 @@ dependencies:
   vue:
     specifier: latest
     version: 3.5.13(typescript@5.7.2)
+  vue-loading-overlay:
+    specifier: ^6.0.6
+    version: 6.0.6(vue@3.5.13)
   vue-router:
     specifier: latest
     version: 4.5.0(vue@3.5.13)
@@ -31,6 +37,9 @@ devDependencies:
   '@sidebase/nuxt-auth':
     specifier: ^0.9.4
     version: 0.9.4(mysql2@3.11.5)(next-auth@4.21.1)(typescript@5.7.2)
+  '@types/ping':
+    specifier: ^0.4.4
+    version: 0.4.4
 
 packages:
 
@@ -1749,6 +1758,10 @@ packages:
     dependencies:
       undici-types: 6.20.0
 
+  /@types/ping@0.4.4:
+    resolution: {integrity: sha512-ifvo6w2f5eJYlXm+HiVx67iJe8WZp87sfa683nlqED5Vnt9Z93onkokNoWqOG21EaE8fMxyKPobE+mkPEyxsdw==}
+    dev: true
+
   /@types/resolve@1.20.2:
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
 
@@ -3066,6 +3079,10 @@ packages:
         optional: true
     dependencies:
       picomatch: 4.0.2
+
+  /file-saver@2.0.5:
+    resolution: {integrity: sha512-P9bmyZ3h/PRG+Nzga+rbdI4OEpNDzAVyy74uVO9ATgzLK6VtAsYybF/+TOCvrc0MO793d6+42lLyZTw7/ArVzA==}
+    dev: false
 
   /file-uri-to-path@1.0.0:
     resolution: {integrity: sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==}
@@ -6254,6 +6271,15 @@ packages:
 
   /vue-devtools-stub@0.1.0:
     resolution: {integrity: sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==}
+    dev: false
+
+  /vue-loading-overlay@6.0.6(vue@3.5.13):
+    resolution: {integrity: sha512-ZPrWawjCoNKGbCG9z4nePgbs/K9KXPa1j1oAJXP6T8FQho3NO+/chhjx4MLYFzfpwr+xkiQ8SNrV1kUG1bZPAw==}
+    engines: {node: '>=12.13.0'}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      vue: 3.5.13(typescript@5.7.2)
     dev: false
 
   /vue-router@4.5.0(vue@3.5.13):

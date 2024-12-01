@@ -33,6 +33,7 @@ export default defineEventHandler(async (req) => {
                 success: true,
             };
         }
+        await connection.end();
     } catch (error) {
         return {
             success: false,

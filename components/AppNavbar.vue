@@ -1,6 +1,10 @@
 <template>
   <nav class="fixed top-0 right-0 py-2 px-4">
     <div class="flex space-x-4 font-semibold">
+      <button v-if="isAuthenticated && isAdmin" @click="handleAdminDashboardClick"
+        class="px-4 py-2 text-black rounded-md">
+        Admin Dashboard
+      </button>
       <button v-if="isAuthenticated" @click="handleDashboardClick"
         class="px-4 py-2 text-black rounded-md">
         Dashboard
@@ -20,14 +24,22 @@
 </template>
 
 <script setup>
-const {signOut, status } = useAuth()
+const {signOut, data: session, status } = useAuth()
 const router = useRouter()
 
 // 計算屬性：判斷是否已認證
 const isAuthenticated = computed(() => status.value === 'authenticated')
+const isAdmin = ref(false)
+const sessionData = ref(null)
+
+sessionData.value = session.value
 
 const navigateToLogin = () => {
   router.push('/login')
+}
+
+const handleAdminDashboardClick = () => {
+  router.push('/admin/dashboard')
 }
 
 const handleDashboardClick = () => {
@@ -35,7 +47,7 @@ const handleDashboardClick = () => {
 }
 
 const handleServerClick = () => {
-  console.log("Server clicked")
+  router.push('/client/selectserver')
 }
 
 const handleLogout = async () => {
@@ -49,4 +61,32 @@ const handleLogout = async () => {
     console.error('Logout failed:', error)
   }
 }
+
+const checkUserRole = async () => {
+  if (sessionData.value.user.id) {
+    try {
+      const response = await $fetch('/api/node/checkUser', {
+        method: 'POST',
+        body: {
+          discordId: sessionData.value.user.id
+        }
+      })
+      
+      if (response.role === 'admin') {
+        isAdmin.value = true
+      } else {
+        isAdmin.value = false
+      }
+    } catch (error) {
+      console.error('Error checking user role:', error)
+    }
+  } else {
+    isAdmin.value = false
+  }
+}
+
+// 當組件掛載時檢查權限
+onMounted(() => {
+  checkUserRole()
+})
 </script>

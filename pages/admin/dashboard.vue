@@ -22,12 +22,6 @@
                     <ListBulletIcon class="w-5 h-5 mr-2" />
                     查看所有異地節點
                 </button>
-
-                <button @click="currentComponent = 'MoveBackup'"
-                    class="flex items-center w-full rounded-lg px-0.5 py-2 hover:bg-gray-300">
-                    <ArrowsRightLeftIcon class="w-5 h-5 mr-2" />
-                    移除異地節點
-                </button>
             </nav>
         </div>
 
@@ -41,7 +35,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import { 
     HomeIcon,
     PlusCircleIcon,

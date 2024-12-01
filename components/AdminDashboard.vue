@@ -3,18 +3,14 @@
       <h1 class="text-2xl font-bold">系統概觀</h1>
       
       <!-- 狀態卡片 -->
-      <div class="grid grid-cols-3 gap-6">
+      <div class="grid grid-cols-2 gap-6">
         <div class="p-6 bg-white rounded-lg shadow">
           <h3 class="text-lg font-medium">總節點數</h3>
-          <p class="text-3xl font-bold mt-2">3</p>
+          <p class="text-3xl font-bold mt-2">{{ allNode }}</p>
         </div>
         <div class="p-6 bg-white rounded-lg shadow">
-          <h3 class="text-lg font-medium">運行中節點</h3>
-          <p class="text-3xl font-bold mt-2">3</p>
-        </div>
-        <div class="p-6 bg-white rounded-lg shadow">
-          <h3 class="text-lg font-medium">平均延遲</h3>
-          <p class="text-3xl font-bold mt-2">7ms</p>
+          <h3 class="text-lg font-medium">運行中節點 (暫無用途)</h3>
+          <p class="text-3xl font-bold mt-2">{{ allNode }}</p>
         </div>
       </div>
   
@@ -55,7 +51,12 @@
     </div>
   </template>
   
-  <script setup>
+<script setup>
+  const allNode = ref(null);
+  
+  const response = await $fetch('/api/node/viewAllNode');
+  allNode.value = response.length;
+
   // 模擬的節點數據
   const nodes = [
     {

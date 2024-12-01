@@ -7,7 +7,7 @@ export function useTime() {
         const now = new Date();
         const hours = now.getHours();
 
-        if (hours >= 0 && hours < 12) {
+        if (hours >= 6 && hours < 12) {
             greeting.value = '早安';
         } else if (hours >= 12 && hours < 18) {
             greeting.value = '午安';
